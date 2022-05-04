@@ -84,5 +84,15 @@ async def ban(ctx, member: disnake.Member, *, reason=None):
 
 
 
+@bot.command()
+async def poll(ctx, *, text: str = None) -> None:
+    """Creates a poll."""
+
+    msg = await ctx.send(f"Poll: {text}")
+    await msg.add_reaction("👍")
+    await msg.add_reaction("👎")
+
+
+
 
 bot.run(input("Token: "))
